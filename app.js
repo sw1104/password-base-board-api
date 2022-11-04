@@ -5,6 +5,7 @@ require('express-async-errors');
 
 const routes = require('./src/routes');
 const error = require('./src/utils/errorHandler');
+const { swaggerUi, specs } = require('./swagger');
 
 const createApp = () => {
   const app = express();
@@ -14,6 +15,7 @@ const createApp = () => {
   app.use(morgan('dev'));
   app.use(routes);
   app.use(error);
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
   return app;
 };
