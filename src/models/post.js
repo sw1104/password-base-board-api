@@ -42,9 +42,21 @@ const getPasswordByPost = async postId => {
     .where('id = :id', { id: postId })
     .getOne();
 };
+
+const removePost = async postId => {
+  return await appDataSource
+    .createQueryBuilder()
+    .update(Post)
+    .set({
+      is_delete: 'true',
+    })
+    .where('id = :id', { id: postId })
+    .execute();
+};
 module.exports = {
   createPost,
   editPost,
   getPost,
   getPasswordByPost,
+  removePost,
 };

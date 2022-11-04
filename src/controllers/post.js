@@ -13,7 +13,15 @@ const editPost = async (req, res) => {
   res.status(200).json({ message: '게시글 수정이 완료되었습니다.' });
 };
 
+const removePost = async (req, res) => {
+  const { postId } = req.params;
+  const { password } = req.body;
+  await postService.removePost(postId, password);
+  res.status(200).json({ message: '게시글 삭제가 완료되었습니다.' });
+};
+
 module.exports = {
   createPost,
   editPost,
+  removePost,
 };
