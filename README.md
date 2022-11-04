@@ -22,10 +22,43 @@
 
 # API 문서
 
-[swagger](http://localhost:3000/api-docs/#/)
+[swagger](http://localhost:3000/api-docs/#/) 문서는 서버 start 후 확인 가능합니다.
 
 <img width="1478" alt="스크린샷 2022-11-04 18 41 16" src="https://user-images.githubusercontent.com/105622759/199942372-81b4a9a9-9e90-45d8-a543-6a576fc31c30.png">
 
 # 테스트
 
 <img width="885" alt="스크린샷 2022-11-04 18 42 12" src="https://user-images.githubusercontent.com/105622759/199942377-c952198d-f1a2-455f-af10-f58225b9c8e7.png">
+
+## 설치 및 실행 방법
+nodejs와 npm이 install 되어있지 않다면 먼저 install 과정 진행
+<details>
+    <summary> 프로젝트 설치 밀 실행 과정</summary>
+
+<b>1. 프로젝트 clone 및 디렉토리 이동</b>
+```bash
+git clone https://github.com/sw1104/password_base_board_API.git
+cd password_base_board_API
+```
+<b>2. .env 파일 생성</b>
+```bash
+PORT = PORT
+
+TYPEORM_CONNECTION = CONNECTION
+TYPEORM_HOST = HOST
+TYPEORM_USERNAME = USERNAME
+TYPEORM_PASSWORD = PASSWORD
+TYPEORM_DATABASE = DATABASE
+TYPEORM_PORT = PORT
+
+API_Key = https://www.weatherapi.com/ API_Key
+```
+   
+<b>3. node package 설치</b>
+```javascript
+npm install
+```
+<b>4. 서버 실행</b>
+```javascript
+npm start
+```
