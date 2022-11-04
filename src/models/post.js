@@ -15,6 +15,36 @@ const createPost = async (title, content, weather, hashedPassword) => {
     .execute();
 };
 
+const editPost = async (postId, title, content) => {
+  return await appDataSource
+    .createQueryBuilder()
+    .update(Post)
+    .set({
+      title: title,
+      content: content,
+    })
+    .where('id = :id', { id: postId })
+    .execute();
+};
+
+const getPost = async postId => {
+  return await appDataSource
+    .getRepository(Post)
+    .createQueryBuilder('posts')
+    .where('id = :id', { id: postId })
+    .getOne();
+};
+
+const getPasswordByPost = async postId => {
+  return await appDataSource
+    .getRepository(Post)
+    .createQueryBuilder('posts')
+    .where('id = :id', { id: postId })
+    .getOne();
+};
 module.exports = {
   createPost,
+  editPost,
+  getPost,
+  getPasswordByPost,
 };

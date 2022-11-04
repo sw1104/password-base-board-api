@@ -8,12 +8,17 @@ const {
 
 const postController = require('../controllers/post');
 
-validatePasswordValue,
-  router.post(
-    '/create',
-    validateCreatePostEmpty,
-    validatePostInputValue,
-    postController.createPost
-  );
+router.post(
+  '/create',
+  validateCreatePostEmpty,
+  validatePostInputValue,
+  postController.createPost
+);
 
+router.patch(
+  '/:postId',
+  validatePostInputValue,
+  validatePasswordValue,
+  postController.editPost
+);
 module.exports = { router };
