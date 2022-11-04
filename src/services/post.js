@@ -45,8 +45,13 @@ const removePost = async (postId, password) => {
   await postModel.removePost(postId);
 };
 
+const getPostList = async () => {
+  return await postModel.getPostList();
+};
+
 module.exports = {
   createPost,
   editPost,
   removePost,
+  getPostList,
 };

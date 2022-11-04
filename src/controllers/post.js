@@ -20,8 +20,14 @@ const removePost = async (req, res) => {
   res.status(200).json({ message: '게시글 삭제가 완료되었습니다.' });
 };
 
+const getPostList = async (req, res) => {
+  const data = await postService.getPostList();
+  res.status(200).json(data);
+};
+
 module.exports = {
   createPost,
   editPost,
   removePost,
+  getPostList,
 };

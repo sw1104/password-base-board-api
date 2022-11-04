@@ -53,10 +53,22 @@ const removePost = async postId => {
     .where('id = :id', { id: postId })
     .execute();
 };
+
+const getPostList = async () => {
+  return await appDataSource
+    .createQueryBuilder()
+    .select(['title', 'content', 'weather'])
+    .from(Post)
+    .where('is_delete = :value', { value: 'false' })
+    .orderBy({ created_at: 'DESC' })
+    .execute();
+};
+
 module.exports = {
   createPost,
   editPost,
   getPost,
   getPasswordByPost,
   removePost,
+  getPostList,
 };

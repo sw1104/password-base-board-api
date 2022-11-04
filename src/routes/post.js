@@ -10,4 +10,5 @@ const postController = require('../controllers/post');
 router.post('/create', validateCreatePostEmpty, postController.createPost);
 router.patch('/:postId', validatePostInputValue, postController.editPost);
 router.patch('/delete/:postId', postController.removePost);
+router.get('', postController.getPostList);
 module.exports = { router };
