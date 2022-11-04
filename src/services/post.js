@@ -32,7 +32,21 @@ const editPost = async (postId, title, content, password) => {
   await postModel.editPost(postId, title, content, password);
 };
 
+const removePost = async (postId, password) => {
+  const isExistPost = await postModel.getPost(postId);
+  if (!isExistPost) throw new BaseError('게시글이 존재하지 않습니다.', 400);
+  if (isExistPost.is_delete === 'true')
+    throw new BaseError('이미 삭제된 게시글 입니다.', 404);
+
+  const getPassword = await postModel.getPasswordByPost(postId);
+  const decode = await bcrypt.compare(password, getPassword.password);
+
+  if (!decode) throw new BaseError('비밀번호가 다릅니다.', 401);
+  await postModel.removePost(postId);
+};
+
 module.exports = {
   createPost,
   editPost,
+  removePost,
 };
