@@ -57,7 +57,7 @@ const removePost = async postId => {
 const getPostList = async () => {
   return await appDataSource
     .createQueryBuilder()
-    .select(['title', 'content', 'weather'])
+    .select(['id', 'title', 'content', 'weather'])
     .from(Post)
     .where('is_delete = :value', { value: 'false' })
     .orderBy({ created_at: 'DESC' })
