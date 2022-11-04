@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "DOTENV_CONFIG_PATH=.env.test jest --setupFiles=dotenv/config --coverage",
     "start": "nodemon server.js"
   },
   "repository": {
