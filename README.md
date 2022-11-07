@@ -19,6 +19,10 @@
    - [https://www.weatherapi.com](https://www.weatherapi.com/)에서 Real-time Weather API 사용
    - API_Key .env저장
    - 게시글 작성시 자동으로 데이터베이스에 날씨 저장
+   
+# ERD
+
+<img width="176" alt="스크린샷 2022-11-07 10 24 00" src="https://user-images.githubusercontent.com/105622759/200207999-8290531e-6a3f-47bc-92e2-6b2312aefb23.png">
 
 # API 문서
 
